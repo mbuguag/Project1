@@ -1,10 +1,15 @@
-const searchInput = document.querySelector('.search-input input');
-const searchDropdown = document.querySelector('.search-dropdown');
-
-searchInput.addEventListener('focus', () => {
-    searchDropdown.style.display = 'block';
+$(".card").on("click", function(){
+    $(".detail").addClass("show")
 });
 
-searchInput.addEventListener('blur', () => {
-    searchDropdown.style.display = 'none';
+$(".close-detail").on("click", function(){
+    $(".detail").removeClass("show")
+});
+
+$(".menu-bar").on("click", function(){
+    $(".sidebar").addClass("show")
+});
+
+$(".sidebar").on("click", function(){
+    $(".sidebar").removeClass("show")
 });
