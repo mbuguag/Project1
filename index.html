@@ -15,6 +15,7 @@
         <div class="menu">
         <a href="#" class="active" ><ion-icon name="home"></ion-icon>Home</a>
         <a href="bank.html"><ion-icon name="business"></ion-icon>Banks</a>
+        <a href="compare.html"><ion-icon name="git-compare"></ion-icon>Compare</a>
         <a href="contacts.html"><ion-icon name="mail"></ion-icon>Contact Us</a>
         </div>
 
@@ -29,8 +30,18 @@
     <!-- End Sidebar -->
     
    <!--Main-->
-   <div class="main">
-    
+   <div class="main-index">
+    <ion-icon class="menu-bar" name="menu"></ion-icon>
+    <div class="hero">
+        <h1>Mwananchi</h1>
+        <h3> Consulting Agency</h3>
+        <p> By holding extensive bank and service information,Mwananchi Bank Consulting 
+            agency effectively guide individuals, businesses, and organizations in finding the
+            most suitable banking solutions for their needs. 
+        </p>
+    </div>
+
+    <button onclick="redirectToBank()" class="btn-bank">Search Bank details</button>
    </div>
    <!--End Main-->
 
@@ -43,4 +54,9 @@
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
 <script src="app.js"></script>
+<script>
+    function redirectToBank() {
+      window.location.href = 'bank.html';
+    }
+    </script>
 </html>
