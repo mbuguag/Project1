@@ -1,0 +1,72 @@
+form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    padding: 50px;
+    gap: 1.5rem;
+    margin-top: 120px;
+    box-shadow: 0px 0px 30px 10px lightgray;
+    align-items: center;
+    text-align: center;
+
+}
+.fcontent {
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    gap: 1.5rem;
+}
+form input{
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 0.2px solid lightgray;
+    
+}
+form input:hover, form input:focus {
+    box-shadow: 0px 0px 0.1px 0.1pc rgba(0, 0, 255, 0.118);
+    outline: none;
+}
+button {
+    width: 100px;
+    border: none;
+    background-color: blue;
+    border-radius: 15px;
+    padding: 8px 15px;
+    font-weight: bolder;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+button:hover {
+    background-color: yellow;
+    color: black;
+}
+ion-icon {
+    font-size: 80px;
+    border: 1px solid blue;
+    border-radius: 50px;
+    padding: 2px;
+    color: lightgray;
+}
+.credentials {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.2;
+   
+}
+.credentials p {
+    color: rgb(134, 134, 134);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    gap: 0.2rem;
+    margin-top: 0%;
+}
+.credentials p:hover {
+    font-weight: bolder;
+    color: blue;
+    
+}
+

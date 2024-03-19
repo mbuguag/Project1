@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +26,8 @@
         <div class="profile">
             <img class="profile-img" src="img/user.png" alt="user">
             <div class="profile-name">
-                <h4>Joseph Mbugua</h4>
-                <button class="logout-btn">logout</button>
+                <h4><?php echo $_SESSION['username'];?></h4>
+                <button class="logout-btn" onClick="RedirectLogout()">logout</button>
             </div>
         </div>
     </div>
@@ -58,5 +62,11 @@
     function redirectToBank() {
       window.location.href = 'bank.html';
     }
+   
+    function RedirectLogout() {
+      window.location.href = 'login.php';
+    }
+    
     </script>
+    
 </html>
