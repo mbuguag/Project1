@@ -13,9 +13,9 @@
    <div class="sidebar">
         <div class="logo"><h1>Mwana<span>nchi</span></h1></div>
         <div class="menu">
-        <a href="index.html" ><ion-icon name="home"></ion-icon>Home</a>
-        <a href="bank.html"><ion-icon name="business"></ion-icon>Banks</a>
-        <a href="compare.html"><ion-icon name="git-compare"></ion-icon>Compare</a>
+        <a href="index.php" ><ion-icon name="home"></ion-icon>Home</a>
+        <a href="bank.php"><ion-icon name="business"></ion-icon>Banks</a>
+        <a href="compare.php"><ion-icon name="git-compare"></ion-icon>Compare</a>
         <a href="#" class="active"><ion-icon name="mail"></ion-icon>Contact Us</a>
         </div>
 

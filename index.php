@@ -18,9 +18,9 @@ include("config.php");
         <div class="logo"><h1>Mwana<span>nchi</span></h1></div>
         <div class="menu">
         <a href="#" class="active" ><ion-icon name="home"></ion-icon>Home</a>
-        <a href="bank.html"><ion-icon name="business"></ion-icon>Banks</a>
-        <a href="compare.html"><ion-icon name="git-compare"></ion-icon>Compare</a>
-        <a href="contacts.html"><ion-icon name="mail"></ion-icon>Contact Us</a>
+        <a href="bank.php"><ion-icon name="business"></ion-icon>Banks</a>
+        <a href="compare.php"><ion-icon name="git-compare"></ion-icon>Compare</a>
+        <a href="contacts.php"><ion-icon name="mail"></ion-icon>Contact Us</a>
         </div>
 
         <div class="profile">
