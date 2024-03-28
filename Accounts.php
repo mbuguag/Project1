@@ -12,23 +12,27 @@
   <?php
   include('config.php');
   include('admin.php');
-  try {
-    $query = "SELECT * FROM banks";
-    $data = mysqli_query($con, $query);
-    print_r($data);
-    return true;
-  } catch (PDOException $e) {
-    $error = $e->getMessage();
+  $query = "SELECT * FROM banks";
+  $stmt = $con->query( $query );
+  if($stmt){
+    $res = [];
+    while($row = $stmt->fetch_object()){ 
+      $res[] = $row;
+    }
+    $numRows = $stmt->num_rows;
+  } else{
+    echo "Error: " . $con->error;
   }
   if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
     if ($_POST['action'] == 'Add Accounts') {
+      $BankID = mysqli_real_escape_string($con, $_POST['bank']);
       $Account_Type = mysqli_real_escape_string($con, $_POST['Account_Type']);
       $Minimum_Balance = mysqli_real_escape_string($con, $_POST['Minimum_Type']);
       $Interest_Rate = mysqli_real_escape_string($con, $_POST['Interest_Rate']);
       $Account_Features = mysqli_real_escape_string($con, $_POST['Account_Features']);
 
 
-      mysqli_query($con, "INSERT INTO accounts(, Email,Phone,Password) VALUES ('$username','$email','$phone','$hashed_password')") or die("Query failed");
+      mysqli_query($con, "INSERT INTO accounts(BankID, AccountType, MinimumBalance, InterestRate, AccountFeatures) VALUES ('$BankID','$Account_Type','$Minimum_Balance','$Interest_Rate', '$Account_Features')") or die("Query failed");
     }
   }
   ?>
@@ -38,10 +42,10 @@
       <form action="" method="post">
         <div class="select_heads">
           <div class="left-select-head">
-            <select name="grade" class="select-grade" id="grade">
+            <select name="bank" class="select-grade" id="grade">
               <option>Select Bank</option>
-              <?php foreach ($levels as $item) { ?>
-                <option value="<?php echo $item->id ?>"><?php echo $item->level ?></option>
+              <?php foreach ($res as $item) { ?>
+                <option value="<?php echo $item->BankID ?>"><?php echo $item->BankName ?></option>
               <?php } ?>
             </select>
           </div>
