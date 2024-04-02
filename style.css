@@ -396,6 +396,10 @@ body{
     -webkit-appearance: none;
     -moz-appearance: none;
 }
+.loan_type{
+    padding: 2px 15px;
+    border-radius: 5px;
+}
 
 .select-sec{
     border-radius: 10px; 

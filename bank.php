@@ -1,3 +1,7 @@
+<?php
+ include('config.php'); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +34,28 @@
     
    <!--Main-->
    <div class="main-bank">
+   <form action="" method="post">
+    
         <div class="main-header">
              <ion-icon class="menu-bar" name="menu"></ion-icon>
              <div class="search">
                 <button class="btn-search"><ion-icon name="search"></ion-icon></button>
-                <select class="select-sec">
+                
+                <select name="Select_banks" id="bank" onchange="updateloans()" class="select-sec"> 
                     <option value="">Select a bank.....</option>
-                    <option value="option1">Cooperative</option>
-                    <option value="option2">KCB</option>
-                    <option value="option3" selected>Equity</option>
-                    <option value="option3">ABSA</option>
-                    <option value="option3">Family</option>
+                    <?php
+                         $select_banks = mysqli_query($con, "SELECT * FROM banks");
+                         while($bank_dtls = $select_banks-> fetch_assoc() ) {
+                     ?>
+                    <option value="<?php echo $bank_dtls ['BankName'] ?>"><?php echo $bank_dtls ['BankName'] ?></option>
+                    <?php } ?>
                 
                     <span class="btn-search">&#9660;</span>
                   </select>
+                  <input type="hidden" name="BankID" value="<?php echo $bank_dtls ['BankID'] ?>">
+
             </div>
+            </form>
         </div>
         <div class="wrapper">
             <div class="card">
@@ -52,14 +63,30 @@
                     <img src="img/loan.png" alt="loan">
                 </div>
                 <div class="card-center">
-                    <h3>Loan</h3>
-                    <p class="card-detail">Requirements</p>
-                    <p class="card-loc">Must be a registered member</p>
+                    <h3>
+                   
+                    <select name="Select_loans" id="loans" class="select-sec">
+                    <option value="">Select loan .....</option>
+                    <?php
+                     if(isset ($_POST['Select_Banks'])){
+                        $BankID = $_POST['BankID'];
+                         $select_loans = mysqli_query($con, "SELECT DISTINCT * FROM loans GROUP BY LoanType WHERE BankID = $BankID");
+                         while($loan_dtls = $select_loans-> fetch_assoc() ) {
+                     ?>
+                    <option value="<?php echo $bank_dtls ['LoanType'] ?>"><?php echo $loan_dtls ['LoanType'] ?></option>
+                    <?php } }?>
+
+                        </h3>
+                    </select>
+                    <p class="card-detail">Repayment Period:<?php echo $bank_dtls ['RepaymentPeriod'] ?> </p>
+                    
                     <div class="card-sub">
-                        <p>I Bank statement</p>
+                        <p>I Bank Details</p>
                         <p>I Account details</p>
                         <p>I Guarantor</p>
                     </div>
+                    <p class="card-detail">Requirements:<?php echo $bank_dtls ['EligibilityCriteria'] ?></p>
+
                 </div>
                 <div class="card-right">
                     <div class="card-tag">
@@ -67,7 +94,7 @@
                         <p>applicable</p>
                     </div>
                     <div class="card-amount">
-                        <p><b>6.0%</b><span>/year</span></p>
+                        <p><b><?php echo $bank_dtls ['InterestRate'] ?></b><span>/year</span></p>
                     </div>
                 </div>
             </div>
@@ -177,5 +204,23 @@
     function redirectTocompare() {
         window.location.href='compare.html';
     }
+    <script>
+    function updateloans() {
+            const BankSelect = document.getElementById('Bank');
+            const LoanInput = document.getElementById('loans');
+            // const quantityInput = document.getElementById('quantity');
+            // const totalInput = document.getElementById('total');
+
+            const selectedOption = BankSelect.options[BankSelect.selectedIndex];
+            const loan = selectedOption.dataset.loans;
+
+            loanInput.value = loans;
+
+//             const quantity = quantityInput.value;
+//             const total = price * quantity;
+
+//             totalInput.value = total;
+//         }
+    </script>
 </script>
 </html>

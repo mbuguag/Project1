@@ -24,7 +24,7 @@
     echo "Error: " . $con->error;
   }
   if ($_SERVER['REQUEST_METHOD'] ==  'POST') {
-    if ($_POST['action'] == 'Add Loans') {
+    if ($_POST['action'] == 'Add LOANS') {
       $BankID = mysqli_real_escape_string($con, $_POST['bank']);
       $Loan_Type = mysqli_real_escape_string($con, $_POST['Loan_Type']);
       $Interest_Rate = mysqli_real_escape_string($con, $_POST['Interest_Rate']);
@@ -33,7 +33,7 @@
       $Loan_Details = mysqli_real_escape_string($con, $_POST['Loan_Details']);
 
 
-      mysqli_query($con, "INSERT INTO loans(BankID, LoanType, InterestRate, RepaymentPeriod, EligibilityCriteria, LoanDetails) VALUES ('$BankID','$Loan_Type', '$Interest_Rate', $Repayment_Period','$Interest_Rate', '$Loan_Details')") or die("Query failed");
+      mysqli_query($con, "INSERT INTO loans(BankID, LoanType, InterestRate, RepaymentPeriod, EligibilityCriteria, LoanDetails) VALUES ('$BankID','$Loan_Type', '$Interest_Rate', '$Repayment_Period','$Eligibility_Criteria', '$Loan_Details')") or die("Query failed");
     }
   }
   ?>

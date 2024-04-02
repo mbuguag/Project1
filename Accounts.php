@@ -27,12 +27,14 @@
     if ($_POST['action'] == 'Add Accounts') {
       $BankID = mysqli_real_escape_string($con, $_POST['bank']);
       $Account_Type = mysqli_real_escape_string($con, $_POST['Account_Type']);
-      $Minimum_Balance = mysqli_real_escape_string($con, $_POST['Minimum_Type']);
+      $Account_Opening_Balance = mysqli_real_escape_string($con, $_POST['Account_Opening_Balance']);
+      $Minimum_Balance = mysqli_real_escape_string($con, $_POST['Minimum_Balance']);
       $Interest_Rate = mysqli_real_escape_string($con, $_POST['Interest_Rate']);
+      $Eligibility_Criteria = mysqli_real_escape_string($con, $_POST['Eligibility_Criteria']);
       $Account_Features = mysqli_real_escape_string($con, $_POST['Account_Features']);
 
 
-      mysqli_query($con, "INSERT INTO accounts(BankID, AccountType, MinimumBalance, InterestRate, AccountFeatures) VALUES ('$BankID','$Account_Type','$Minimum_Balance','$Interest_Rate', '$Account_Features')") or die("Query failed");
+      mysqli_query($con, "INSERT INTO accounts(BankID, AccountType, AccountOpeningBalance, MinimumBalance, InterestRate, EligibilityCriteria, AccountFeatures) VALUES ('$BankID','$Account_Type', '$Account_Opening_Balance', '$Minimum_Balance','$Interest_Rate', '$Eligibility_Criteria', '$Account_Features')") or die("Query failed");
     }
   }
   ?>
@@ -55,12 +57,20 @@
           <input type="text" class="form-control" name="Account_Type">
         </div>
         <div class="mb-3">
+          <label for="" class="form-label">Account Opening Balance</label>
+          <input type="text" class="form-control" name="Account_Opening_Balance">
+        </div>
+        <div class="mb-3">
           <label for="" class="form-label">Minimum Balance</label>
           <input type="text" class="form-control" name="Minimum_Balance">
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Interest Rate</label>
           <input type="text" class="form-control" name="Interest_Rate">
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Eligibility Criteria</label>
+          <input type="text" class="form-control" name="Eligibility_Criteria">
         </div>
         <div class="mb-3">
           <label for="" class="form-label">Account Features</label>
