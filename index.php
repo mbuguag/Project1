@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <title>MWANANCHI APP</title>
     
@@ -30,13 +30,7 @@
     
    <!--Main-->
    <div class="main">
-    <section class="hero">
-        <div class="container">
-            <h2>Welcome to Mwananchi App</h2>
-            <p>Find the best banking information in Kenya with ease.</p>
-            <a href="bank.html" class="btn">Explore Banks</a>
-        </div>
-    </section>
+    
    </div>
    <!--End Main-->
 
